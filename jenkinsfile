@@ -1,0 +1,17 @@
+node {
+   stage('Checkout') {
+      git url: 'https://github.com/mbouluad/TasklistApp.git'
+   }
+   stage('Build') {
+
+          sh "mvn clean package"
+  
+    }
+    stage('Package') {
+      xldCreatePackage artifactsPath: 'target/*.jar', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'
+    }
+stage('Publish') {  
+    xldPublishPackage serverCredentials: 'xluser', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'  
+  } 
+
+}
