@@ -7,10 +7,10 @@ node {
           sh "mvn clean package"
   
     }
-    stage('Package') {
-      xldCreatePackage artifactsPath: 'target/*.jar', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'
+    stage('Package xl deploy') {
+      xldCreatePackage artifactsPath: 'target', manifestPath: 'deployit-manifest.xml', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'
     }
-stage('Publish') {  
+stage('Publish package xl deploy') {  
     xldPublishPackage serverCredentials: 'xluser', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'  
   } 
 
