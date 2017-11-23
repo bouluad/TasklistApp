@@ -3,7 +3,7 @@
   <application />
   <orchestrator />
   <deployables>
-   <file.Archive name="tasklist" file="*.jar">
+   <file.Archive name="tasklist" file="tasklist-service-1.0-SNAPSHOT.jar">
   </file.Archive>
 </deployables>
   <applicationDependencies />
