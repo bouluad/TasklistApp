@@ -3,7 +3,7 @@
   <application />
   <orchestrator />
   <deployables>
-   <file.Archive name="tasklist" file="target/*.jar">
+   <file.Archive name="tasklist" file="*.jar">
   </file.Archive>
 </deployables>
   <applicationDependencies />
