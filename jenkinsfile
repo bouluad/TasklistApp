@@ -16,6 +16,6 @@ stage('Publish package xl deploy') {
   stage('Deploy to Dev') {  
     xldDeploy serverCredentials: 'xluser', environmentId: 'Environments/Dev', packageId: 'Applications/tasklist/$BUILD_NUMBER.0'
   }  
-}
+
 
 }
