@@ -13,5 +13,9 @@ node {
 stage('Publish package xl deploy') {  
     xldPublishPackage serverCredentials: 'xluser', darPath: '$JOB_NAME-$BUILD_NUMBER.0.dar'  
   } 
+  stage('Deploy to Dev') {  
+    xldDeploy serverCredentials: 'xluser', environmentId: 'Environments/Dev', packageId: 'Applications/tasklist/$BUILD_NUMBER.0'
+  }  
+}
 
 }
