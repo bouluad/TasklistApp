@@ -1,0 +1,15 @@
+node {
+   stage('Checkout') {
+      git url: 'https://github.com/mbouluad/TasklistApp.git'
+   }
+   stage('Build') {
+
+          sh "mvn clean package"
+  
+    }
+    stage('Deploy to nexus') {
+      
+      nexusPublisher nexusInstanceId: 'dockernexus', nexusRepositoryId: 'releases', packages: [[$class: 'MavenPackage', mavenAssetList: [[classifier: '', extension: '', filePath: 'target/tasklist-service-1.0-SNAPSHOT.jar']], mavenCoordinate: [artifactId: 'tasklist-service', groupId: 'com', packaging: 'jar', version: '2.2']]]
+    }
+ 
+}
